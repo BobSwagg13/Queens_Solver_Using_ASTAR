@@ -38,7 +38,9 @@ def solve_web():
     start_button.click()
 
     # Close pop-up
-    close_button = wait.until(EC.element_to_be_clickable((By.ID, "ember61")))
+    close_button = wait.until(EC.element_to_be_clickable((
+        By.CSS_SELECTOR, 'button[aria-label="Dismiss"]'
+    )))
     close_button.click()
 
     # Wait for game cells to appear
