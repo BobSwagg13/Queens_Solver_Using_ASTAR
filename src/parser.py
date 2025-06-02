@@ -1,4 +1,5 @@
 def parse(filepath) -> list[list[int]]:
+    """Parse from txt"""
     matrix = []
     with open(filepath, "r") as file:
         for line in file:
@@ -6,4 +7,3 @@ def parse(filepath) -> list[list[int]]:
             matrix.append(row)
 
     return matrix
-    
