@@ -98,7 +98,7 @@ def solve_web():
                 f.write("\n")
 
     for coordinate in result:
-        matrix[coordinate[0]][coordinate[1]] = "O"
+        matrix[coordinate[0]][coordinate[1]] = "Q"
 
     for row in matrix:
         print(row)

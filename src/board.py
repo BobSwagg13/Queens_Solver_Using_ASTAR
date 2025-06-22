@@ -59,7 +59,7 @@ class Board_state:
         for coor in area.list_of_coordinates:
             self.board[coor[0]][coor[1]] = "X"
 
-        self.board[coordinate[0]][coordinate[1]] = "O"
+        self.board[coordinate[0]][coordinate[1]] = "Q"
 
     def is_valid_area(self, area_id) -> bool:
         """Checks if areas is full by X"""
@@ -74,14 +74,14 @@ class Board_state:
     def is_valid_placement(self, coordinate) -> bool:
         """Checks valid placement of coordinate on board"""
         for i in range(self.row):
-            if self.board[coordinate[0]][i] == "O":
+            if self.board[coordinate[0]][i] == "Q":
                 return False
         for i in range(self.col):
-            if self.board[i][coordinate[1]] == "O":
+            if self.board[i][coordinate[1]] == "Q":
                 return False
 
         if (
-            self.board[coordinate[0]][coordinate[1]] == "O"
+            self.board[coordinate[0]][coordinate[1]] == "Q"
             or self.board[coordinate[0]][coordinate[1]] == "X"
         ):
             return False
@@ -118,7 +118,7 @@ class Board_state:
         """Returns number of queen on current board"""
         total = 0
         for row in self.board:
-            total += row.count("O")
+            total += row.count("Q")
         return total
 
     def get_area(self, area_id) -> Area:
@@ -133,7 +133,7 @@ class Board_state:
         queens = []
         for i in range(self.row):
             for j in range(self.col):
-                if self.board[i][j] == "O":
+                if self.board[i][j] == "Q":
                     queens.append([i, j])
 
         return queens
@@ -141,3 +141,4 @@ class Board_state:
     def __lt__(self, other):
         """Comparison rule for prioqueue"""
         return self.filled_count + self.step > other.filled_count + other.step
+        
